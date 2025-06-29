@@ -1,0 +1,45 @@
+/* larger.css */
+
+/* Show the hamburger menu on small screens */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Hide hamburger on larger screens */
+    }
+
+    nav {
+        display: block; /* Show navigation on larger screens */
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: flex-end; /* Align links to the right */
+    }
+
+    nav ul li {
+        margin: 0 15px; /* Space out navigation items */
+    }
+
+    nav ul li a {
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+    }
+}
+
+/* Main content styles for larger screens */
+@media (min-width: 768px) {
+    main {
+        max-width: 800px; /* Limit width of main content */
+        margin: auto; /* Center main content */
+    }
+
+    .course {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
