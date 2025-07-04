@@ -11,11 +11,16 @@ const courses = [
 ];
 
 // Function to display courses
-function displayCourses() {
+function displayCourses(filter = null) {
     const courseListDiv = document.getElementById('courseList');
+    courseListDiv.innerHTML = ''; // Clear previous content
     let totalCredits = 0;
 
     courses.forEach(course => {
+        // Apply filter if provided
+        if (filter === 'completed' && !course.completed) return;
+        if (filter === 'not-completed' && course.completed) return;
+
         const courseDiv = document.createElement('div');
         courseDiv.classList.add('course');
 
@@ -34,5 +39,17 @@ function displayCourses() {
     document.getElementById('totalCredits').textContent = totalCredits;
 }
 
+// Function to filter courses
+function filterCourses(filter) {
+    displayCourses(filter);
+}
+
 // Call the function to display courses when the page loads
-document.addEventListener('DOMContentLoaded', displayCourses);
+document.addEventListener('DOMContentLoaded', () => {
+    displayCourses(); // Display all courses initially
+
+    // Add event listeners for filter buttons
+    document.getElementById('showAll').addEventListener('click', () => displayCourses());
+    document.getElementById('showCompleted').addEventListener('click', () => filterCourses('completed'));
+    document.getElementById('showNotCompleted').addEventListener('click', () => filterCourses('not-completed'));
+});
