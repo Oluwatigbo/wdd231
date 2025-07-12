@@ -1,0 +1,25 @@
+{
+    "name": "Chamber of Commerce Directory",
+    "short_name": "Chamber Directory",
+    "start_url": "/chamber/directory.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007BFF",
+    "icons": [
+        {
+            "src": "images/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "images/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "images/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ]
+}

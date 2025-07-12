@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Business One",
+        "address": "123 Main St, Cityville, ST 12345",
+        "phone": "123-456-7890",
+        "website": "http://businessone.com",
+        "image": "images/business1.webp",
+        "membershipLevel": 1,
+        "info": "Member since 2020"
+    },
+    {
+        "name": "Business Two",
+        "address": "456 Elm St, Cityville, ST 12345",
+        "phone": "234-567-8901",
+        "website": "http://businesstwo.com",
+        "image": "images/business2.webp",
+        "membershipLevel": 2,
+        "info": "Silver member since 2019"
+    },
+    {
+        "name": "Business Three",
+        "address": "789 Oak St, Cityville, ST 12345",
+        "phone": "345-678-9012",
+        "website": "http://businessthree.webp",
+        "image": "images/business3.webp",
+        "membershipLevel": 3,
+        "info": "Gold member since 2018"
+    },
+    {
+        "name": "Business Four",
+        "address": "321 Pine St, Cityville, ST 12345",
+        "phone": "456-789-0123",
+        "website": "http://businessfour.com",
+        "image": "images/business4.webp",
+        "membershipLevel": 1,
+        "info": "Member since 2021"
+    },
+    {
+        "name": "Business Five",
+        "address": "654 Maple St, Cityville, ST 12345",
+        "phone": "567-890-1234",
+        "website": "http://businessfive.com",
+        "image": "images/business5.webp",
+        "membershipLevel": 2,
+        "info": "Silver member since 2020"
+    },
+    {
+        "name": "Business Six",
+        "address": "987 Cedar St, Cityville, ST 12345",
+        "phone": "678-901-2345",
+        "website": "http://businesssix.com",
+        "image": "images/business6.webp",
+        "membershipLevel": 3,
+        "info": "Gold member since 2019"
+    },
+    {
+        "name": "Business Seven",
+        "address": "135 Birch St, Cityville, ST 12345",
+        "phone": "789-012-3456",
+        "website": "http://businessseven.com",
+        "image": "images/business7.webp",
+        "membershipLevel": 1,
+        "info": "Member since 2022"
+    }
+]

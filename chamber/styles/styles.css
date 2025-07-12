@@ -1,0 +1,113 @@
+/* styles.css */
+
+/* Normalize CSS */
+@import url('normalize.css');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+#memberList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.member-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+footer {
+    background: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* styles.css */
+
+/* Existing styles... */
+
+/* General styles for the member list */
+#memberList {
+    display: block; /* Default to block for list view */
+}
+
+/* Styles for member cards in grid view */
+.member-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Styles for member cards in list view */
+.member-list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Add a bottom border for separation */
+}
+
+/* Zebra striping for list view */
+.member-list-item:nth-child(odd) {
+    background-color: #f9f9f9; /* Light gray for odd items */
+}
+
+.member-list-item:nth-child(even) {
+    background-color: #ffffff; /* White for even items */
+}
+
+/* Responsive styles for images */
+.member-card img,
+.member-list-item img {
+    max-width: 100px; /* Set a max width for images in list view */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between image and text */
+}
+
+/* Additional styles for the list view */
+.member-list-item h3 {
+    margin: 0; /* Remove default margin */
+}
+
+.member-list-item p {
+    margin: 5px 0; /* Add some spacing between paragraphs */
+}
