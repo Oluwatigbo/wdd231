@@ -86,31 +86,6 @@ footer {
     border-bottom: 1px solid #ccc; /* Add a bottom border for separation */
 }
 
-/* Zebra striping for list view */
-.member-list-item:nth-child(odd) {
-    background-color: #f9f9f9; /* Light gray for odd items */
-}
-
-.member-list-item:nth-child(even) {
-    background-color: #ffffff; /* White for even items */
-}
-
-/* Responsive styles for images */
-.member-card img,
-.member-list-item img {
-    max-width: 100px; /* Set a max width for images in list view */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 15px; /* Space between image and text */
-}
-
-/* Additional styles for the list view */
-.member-list-item h3 {
-    margin: 0; /* Remove default margin */
-}
-
-.member-list-item p {
-    margin: 5px 0; /* Add some spacing between paragraphs */
-}
 
 /* styles.css */
 
