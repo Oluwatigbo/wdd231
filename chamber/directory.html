@@ -22,7 +22,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=YourFontName:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/styles.css">
@@ -31,7 +31,8 @@
 <body>
     <header>
         <h1>Chamber of Commerce Directory</h1>
-        <nav>
+        <button id="hamburger" aria-label="Toggle navigation">&#9776;</button> <!-- Hamburger button -->
+        <nav id="navMenu" class="hidden">
             <ul>
                 <li><a href="directory.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -41,7 +42,13 @@
     </header>
 
     <main>
-        <h1>Chamber of Commerce Directory</h1> <!-- Ensure this matches the title -->
+        <nav aria-label="Breadcrumb">
+            <ol>
+                <li><a href="directory.html">Home</a></li>
+                <li aria-current="page">Chamber of Commerce Directory</li>
+            </ol>
+        </nav>
+        <h1>Chamber of Commerce Directory</h1>
         <div>
             <button id="gridView">Grid View</button>
             <button id="listView">List View</button>

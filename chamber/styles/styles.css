@@ -111,3 +111,23 @@ footer {
 .member-list-item p {
     margin: 5px 0; /* Add some spacing between paragraphs */
 }
+
+/* styles.css */
+
+/* Breadcrumb styles */
+nav[aria-label="Breadcrumb"] {
+    margin-bottom: 20px;
+}
+
+nav[aria-label="Breadcrumb"] ol {
+    list-style: none;
+    padding: 0;
+}
+
+nav[aria-label="Breadcrumb"] li {
+    display: inline;
+}
+
+nav[aria-label="Breadcrumb"] li + li:before {
+    content: " > "; /* Separator */
+}
