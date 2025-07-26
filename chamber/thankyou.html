@@ -19,14 +19,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/styles2.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/script.js" defer></script>
-    
+    <style>
+        /* Additional styles for the join page */
+        .membership-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .membership-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Join the Chamber of Commerce</h1>
-        <button id="hamburger" aria-label="Toggle navigation menu">
+       <button id="hamburger" aria-label="Toggle navigation menu">
                 <span>&#9776;</span>
             </button>
             <nav id="navMenu">
@@ -41,8 +92,12 @@
     </header>
 
     <main>
-        <h2>Membership Application Form</h2>
-        <form action="thankyou.html" method="get">
+        <!-- Add this to your thankyou.html -->
+        <section class="thank-you">
+            <h2>Thank You for Your Application!</h2>
+            <div id="application-details"></div>
+            <a href="directory.html" class="view-directory-btn">View Business Directory</a>
+        </section>
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" title="Your first name" required autocomplete="given-name">
 
@@ -138,7 +193,7 @@
                 <h2>Silver Membership Benefits</h2>
                 <h3>$300/year</h3>
                 <ul>
-                                       <li>All Bronze Member benefits plus:</li>
+                    <li>All Bronze Member benefits plus:</li>
                     <li>Premium directory listing with expanded profile</li>
                     <li>Priority access to Chamber networking events</li>
                     <li>Quarterly featured business spotlight</li>
@@ -184,8 +239,24 @@
             // Set the last modified date
             document.getElementById('lastModified').textContent = document.lastModified;
 
-            // Set the current timestamp in the hidden field
-            document.getElementById('timestamp').value = new Date().toISOString();
+            // Parse URL parameters and display application details
+            const urlParams = new URLSearchParams(window.location.search);
+            const appDetails = document.getElementById('application-details');
+            
+            if (urlParams.toString()) {
+                const details = `
+                    <h3>Your Application Details</h3>
+                    <p><strong>Name:</strong> ${urlParams.get('firstName')} ${urlParams.get('lastName')}</p>
+                    <p><strong>Organization:</strong> ${urlParams.get('businessName')}</p>
+                    <p><strong>Title:</strong> ${urlParams.get('orgTitle')}</p>
+                    <p><strong>Email:</strong> ${urlParams.get('email')}</p>
+                    <p><strong>Phone:</strong> ${urlParams.get('phone')}</p>
+                    <p><strong>Membership Level:</strong> ${urlParams.get('membershipLevel').charAt(0).toUpperCase() + 
+                                                           urlParams.get('membershipLevel').slice(1)}</p>
+                    <p><strong>Application Submitted:</strong> ${new Date(urlParams.get('timestamp')).toLocaleString()}</p>
+                `;
+                appDetails.innerHTML = details;
+            }
 
             // Modal functionality
             const infoButtons = document.querySelectorAll('.info-btn');

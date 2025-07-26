@@ -118,3 +118,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('lastModified').textContent = document.lastModified; // Display last modified date
     document.getElementById('currentYear').textContent = new Date().getFullYear(); // Display current year
 });
+
