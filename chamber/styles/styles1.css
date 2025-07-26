@@ -1,0 +1,154 @@
+/* Normalize CSS */
+@import url('normalize.css');
+
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #6c757d;
+    --accent-color: #ffc107;
+    --light-color: #f4f4f467;
+    --dark-color: #343a40;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Updated to match index.html */
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-color);
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ }
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hamburger {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    padding: 2rem; /* Adjusted padding for consistency */
+}
+
+/* Breadcrumb styles */
+nav[aria-label="Breadcrumb"] {
+    margin-bottom: 20px;
+}
+
+nav[aria-label="Breadcrumb"] ol {
+    list-style: none;
+    padding: 0;
+}
+
+nav[aria-label="Breadcrumb"] li {
+    display: inline;
+}
+
+nav[aria-label="Breadcrumb"] li + li:before {
+    content: " > "; /* Separator */
+}
+
+/* General styles for the member list */
+#memberList {
+    display: grid; /* Default to grid for member list */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Styles for member cards */
+.member-card {
+    background: var(--white);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.member-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Styles for member cards in list view */
+.member-list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Add a bottom border for separation */
+}
+
+footer {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0; /* Adjusted padding for consistency */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* View Controls */
+.view-controls {
+    margin-bottom: 20px;
+}
+
+.view-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.view-btn:hover {
+    background: #0056b3; /* Darker shade on hover */
+}
+
+.view-btn.active {
+    background: var(--accent-color);
+}

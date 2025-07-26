@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find local businesses and services in your area.">
+    <meta name="description" content="Browse our comprehensive directory of Chamber of Commerce member businesses and services.">
     <meta name="author" content="Oluwatigbo Alao">
     <title>Chamber of Commerce Directory</title>
 
@@ -22,10 +22,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=YourFontName:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles1.css"> <!-- Ensure this points to the correct CSS file -->
     <script src="scripts/script.js" defer></script>
 </head>
 <body>
@@ -34,9 +34,11 @@
         <button id="hamburger" aria-label="Toggle navigation">&#9776;</button> <!-- Hamburger button -->
         <nav id="navMenu" class="hidden">
             <ul>
-                <li><a href="directory.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="join.html" class="join-link">Join Us</a></li>
             </ul>
         </nav>
     </header>
@@ -44,23 +46,78 @@
     <main>
         <nav aria-label="Breadcrumb">
             <ol>
-                <li><a href="directory.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li aria-current="page">Chamber of Commerce Directory</li>
             </ol>
         </nav>
-        <h1>Chamber of Commerce Directory</h1> <!-- Ensure this is the first element -->
-        <div>
-            <button id="gridView">Grid View</button>
-            <button id="listView">List View</button>
+        <h2>Chamber of Commerce Directory</h2>
+        <div class="view-controls">
+            <button id="gridView" class="view-btn active" aria-label="Switch to grid view">Grid View</button>
+            <button id="listView" class="view-btn" aria-label="Switch to list view">List View</button>
         </div>
-        <section id="memberList"></section>
+        <section id="memberList" class="grid-view" aria-labelledby="directory-title">
+            <h3 id="directory-title" class="sr-only">Members</h3>
+            <!-- Member cards will be dynamically populated here -->
+        </section>
     </main>
 
     <footer>
-        <p>Contact us: info@chamber.com</p>
+        <p>Contact us: <a href="mailto:info@chamber.com">info@chamber.com</a></p>
         <p>Oluwatigbo Alao, WDD 231</p>
         <p>Last Modified: <span id="lastModified"></span></p>
         <p>&copy; <span id="currentYear"></span> Chamber of Commerce</p>
     </footer>
+
+    <script>
+        // JavaScript to handle dynamic content and functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set the current year in the footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            // Set the last modified date
+            document.getElementById('lastModified').textContent = document.lastModified;
+
+            // Fetch and display members
+            fetchMembers();
+
+            // Event listeners for view buttons
+            document.getElementById('gridView').addEventListener('click', () => {
+                document.getElementById('memberList').classList.add('grid-view');
+                document.getElementById('memberList').classList.remove('list-view');
+            });
+
+            document.getElementById('listView').addEventListener('click', () => {
+                document.getElementById('memberList').classList.add('list-view');
+                document.getElementById('memberList').classList.remove('grid-view');
+            });
+        });
+
+        async function fetchMembers() {
+            try {
+                const response = await fetch('data/members.json'); // Adjust the path as necessary
+                const members = await response.json();
+                displayMembers(members);
+            } catch (error) {
+                console.error('Error fetching member data:', error);
+                document.getElementById('memberList').innerHTML = '<p>Unable to load member data.</p>';
+            }
+        }
+
+        function displayMembers(members) {
+            const memberList = document.getElementById('memberList');
+            memberList.innerHTML = ''; // Clear previous content
+
+            members.forEach(member => {
+                const memberCard = document.createElement('div');
+                memberCard.classList.add('member-card');
+                memberCard.innerHTML = `
+                    <h4>${member.name}</h4>
+                    <p>${member.description}</p>
+                    <p><strong>Phone:</strong> ${member.phone}</p>
+                    <p><strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
+                `;
+                memberList.appendChild(memberCard);
+            });
+        }
+    </script>
 </body>
 </html>

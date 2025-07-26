@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 });
 
+document.getElementById('hamburger').addEventListener('click', () => {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('hidden');
+});
+
 // script.js
 
 // Fetch weather data
