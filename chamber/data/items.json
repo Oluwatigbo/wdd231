@@ -1,0 +1,50 @@
+[
+    {
+        "name": "City Park",
+        "address": "123 Park Lane, Cityville",
+        "description": "A beautiful park with walking trails and picnic areas.",
+        "image": "images/city-park.webp"
+    },
+    {
+        "name": "Art Museum",
+        "address": "456 Art St, Cityville",
+        "description": "Home to a vast collection of modern art.",
+        "image": "images/art-museum.webp"
+    },
+    {
+        "name": "Historic Downtown",
+        "address": "789 Main St, Cityville",
+        "description": "Explore the rich history and architecture of our downtown area.",
+        "image": "images/historic-downtown.webp"
+    },
+    {
+        "name": "Local Farmers Market",
+        "address": "101 Market Rd, Cityville",
+        "description": "Fresh produce and local goods every Saturday.",
+        "image": "images/farmers-market.webp"
+    },
+    {
+        "name": "Community Center",
+        "address": "202 Community Dr, Cityville",
+        "description": "A hub for local events and activities.",
+        "image": "images/community-center.webp"
+    },
+    {
+        "name": "City Library",
+        "address": "303 Library Ln, Cityville",
+        "description": "A quiet place to read and study.",
+        "image": "images/city-library.webp"
+    },
+    {
+        "name": "Sports Complex",
+        "address": "404 Sports Ave, Cityville",
+        "description": "Facilities for various sports and fitness activities.",
+        "image": "images/sports-complex.webp"
+    },
+    {
+        "name": "Nature Reserve",
+        "address": "505 Nature Rd, Cityville",
+        "description": "A serene place for hiking and wildlife observation.",
+        "image": "images/nature-reserve.webp"
+    }
+]

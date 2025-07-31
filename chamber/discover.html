@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the attractions and features of our area.">
+    <meta name="author" content="Oluwatigbo Alao">
+    <title>Chamber of Commerce - Discover</title>
+
+    <!-- Favicon and Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:title" content="Chamber of Commerce - Discover">
+    <meta property="og:description" content="Discover the attractions and features of our area.">
+    <meta property="og:image" content="images/hero-image.webp"> 
+    <meta property="og:url" content="https://oluwatigbo.github.io/wdd231/chamber/discover.html">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Chamber of Commerce</h1>
+            <button id="hamburger" aria-label="Toggle navigation menu">
+                <span>&#9776;</span>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="join.html" class="join-link">Join Us</a></li>
+                    <li><a href="discover.html" class="active">Discover</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Discover Our Area</h2>
+        <div class="sidebar">
+            <p id="visitorMessage"></p>
+        </div>
+        <div class="grid-container">
+            <!-- Cards will be populated here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html">Business Directory</a></li>
+                    <li><a href="events.html">Events Calendar</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <address>
+                    <p>123 Commerce Street<br>
+                    Cityville, ST 12345</p>
+                    <p>Phone: (555) 987-6543</p>
+                    <p>Email: info@chambercommerce.com</p>
+                </address>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Oluwatigbo Alao, WDD 231</p>
+            <p>&copy; <span id="currentYear"></span> Cityville Chamber of Commerce. All rights reserved.</p>
+            <p id="lastModified">Last Updated: <span></span></p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to load items from JSON and manage visitor messages
+        document.addEventListener('DOMContentLoaded', function() {
+            const visitorMessage = document.getElementById('visitorMessage');
+            const gridContainer = document.querySelector('.grid-container');
+
+            // Load items from JSON
+            fetch('data/items.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach((item, index) => {
+                        const card = document.createElement('div');
+                        card.classList.add('card');
+                        card.style.gridArea = `card${index + 1}`;
+                        card.innerHTML = `
+                            <h2>${item.name}</h2>
+                            <figure>
+                                <img src="${item.image}" alt="${item.name}">
+                            </figure>
+                            <address>${item.address}</address>
+                            <p>${item.description}</p>
+                            <button>Learn More</button>
+                        `;
+                        gridContainer.appendChild(card);
+                    });
+                });
+
+            // Handle visitor messages
+            const lastVisit = localStorage.getItem('lastVisit');
+            const currentDate = Date.now();
+            localStorage.setItem('lastVisit', currentDate);
+
+            if (!lastVisit) {
+                visitorMessage.textContent = "Welcome! Let us know if you have any questions.";
+            } else {
+                const daysSinceLastVisit = Math.floor((currentDate - lastVisit) / (1000 * 60 * 60 * 24));
+                if (daysSinceLastVisit < 1) {
+                    visitorMessage.textContent = "Back so soon! Awesome!";
+                } else {
+                    visitorMessage.textContent = `You last visited ${daysSinceLastVisit} day${daysSinceLastVisit > 1 ? 's' : ''} ago.`;
+                }
+            }
+
+            // Set current year and last modified date
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            document.getElementById('lastModified').querySelector('span').textContent = document.lastModified;
+        });
+    </script>
+</body>
+</html>
