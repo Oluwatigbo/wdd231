@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Gardening Initiative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #4caf50; /* Indigo-900 */
+      --color-accent: #3e8e41; /* Indigo-600 */
+      --color-text-primary: #111827; /* Gray-900 */
+      --color-text-secondary: #6b7280; /* Gray-500 */
+      --color-bg: #ffffff;
+      --border-radius: 0.75rem;
+      --transition-speed: 0.3s;
+      --max-width: 1200px;
+      --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      font-size: 18px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--color-primary);
+      outline: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--color-bg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      user-select: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      font-weight: 600;
+    }
+
+    nav a.nav-link {
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    nav a.nav-link:hover,
+    nav a.nav-link:focus {
+      background-color: var(--color-primary);
+      color: white;
+      outline: none;
+      transform: scale(1.05);
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: var(--max-width);
+      margin: 3rem auto 4rem;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 4rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: var(--color-primary);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      user-select: none;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      color: var(--color-text-secondary);
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.85rem 2.25rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color var(--transition-speed), transform var(--transition-speed);
+      user-select: none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--color-accent);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    .about {
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 500;
+      font-size: 1.125rem;
+      color: var(--color-text-primary);
+      user-select: text;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      color: var(--color-text-primary);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      user-select: text;
+      transition: box-shadow var(--transition-speed);
+    }
+
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 8px 16px rgba(37,99,235,0.3);
+      outline: none;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #f9fafb;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      user-select: none;
+      border-top: 1px solid #e5e7eb;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      main {
+        margin: 2rem 1rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="logo" aria-label="Community Gardening Initiative Logo" tabindex="0">GrowTogether</div>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
+        <li><a href="tips.html" class="nav-link">Gardening Tips</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main">
+    <section class="hero" aria-label="Introduction to Community Gardening Initiative">
+      <h1>Grow Together: Local Community Gardening</h1>
+      <p>Join hands to cultivate a greener neighborhood by sharing gardening knowledge, growing fresh produce, and connecting with nature and neighbors.</p>
+      <a href="contact.html" class="btn-primary" role="button">Get Involved</a>
+    </section>
+
+    <section class="about" aria-label="About the Community Gardening Initiative">
+      <h2>About Our Initiative</h2>
+      <p>GrowTogether empowers community members to create sustainable gardens, learning together and growing food locally. Whether you're a novice or seasoned gardener, we welcome you to join our community activities and resources.</p>
+    </section>
+
+    <section class="features" aria-label="Benefits of Community Gardening">
+      <article class="card" tabindex="0" aria-describedby="feature1-desc">
+        <h3>Environmental Impact</h3>
+        <p id="feature1-desc">Community gardens help improve air quality, reduce urban heat, and promote biodiversity by creating green spaces in neighborhoods.</p>
+      </article>
+      <article class="card" tabindex="0" aria-describedby="feature2-desc">
+        <h3>Health and Wellness</h3>
+        <p id="feature2-desc">Gardening encourages physical activity, reduces stress, and fosters healthy eating habits through access to fresh vegetables and herbs.</p>
+      </article>
+      <article class="card" tabindex="0" aria-describedby="feature3-desc">
+        <h3>Social Connection</h3>
+        <p id="feature3-desc">Our initiative strengthens social ties within the community by encouraging collaboration, sharing, and social gatherings around gardening.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GrowTogether Community Gardening Initiative | <a href="references.html">References</a></p>
+  </footer>
+</body>
+</html>
+
